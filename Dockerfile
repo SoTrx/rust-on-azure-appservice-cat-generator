@@ -66,5 +66,6 @@ WORKDIR /app
 COPY --from=builder --chmod=0500 --chown=appuser:appuser  /app/target/x86_64-unknown-linux-musl/release/cat-server ./
 
 WORKDIR /home/site/wwwroot
+COPY --chmod=0444 assets/ .
 EXPOSE 80 2222
 ENTRYPOINT [ "/bin/init_container.sh" ]
